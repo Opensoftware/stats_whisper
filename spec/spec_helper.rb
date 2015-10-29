@@ -1,4 +1,5 @@
 require 'rspec'
+require 'stats_whisper'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

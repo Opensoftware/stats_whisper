@@ -1,5 +1,12 @@
 require "stats_whisper/version"
+require 'logger'
+
 
 module StatsWhisper
-  # Your code goes here...
+  extend self
+
+  attr_accessor :logger
+
 end
+
+StatsWhisper.logger = Logger.new($stderr)
