@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in stats_whisper.gemspec
 gemspec
+
+group :tools do
+  platform :mri do
+    gem 'mutant'
+    gem 'mutant-rspec'
+  end
+end
