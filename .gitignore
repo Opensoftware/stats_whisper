@@ -12,3 +12,5 @@
 *.o
 *.a
 mkmf.log
+stats.sublime-project
+stats.sublime-workspace
