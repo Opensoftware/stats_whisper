@@ -1,5 +1,7 @@
 ---
 
+app_name: bar
+
 whitelist:
   - ^/dashboard
   - /en/main
