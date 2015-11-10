@@ -18,11 +18,34 @@ describe StatsWhisper::Config do
 
     context "when whitelist in config is not empty" do
       before do
-        allow(ctxt).to receive(:config).and_return({:whitelist => ['ok!']})
+        allow(ctxt).to receive(:config).and_return({'whitelist' => ['ok!']})
       end
 
       it "returns non-empty array" do
         expect(ctxt.whitelist).not_to be_empty
+      end
+    end
+  end
+
+  describe "#app_name" do
+    context "when app_name in config is empty" do
+      before do
+        allow(ctxt).to receive(:config).and_return({})
+      end
+
+      it "returns default value" do
+        expect(ctxt.app_name).to eq('foo')
+
+      end
+    end
+
+    context "when env variable is undefined" do
+      before do
+        allow(ctxt).to receive(:config).and_return({'app_name' => "cool_app"})
+      end
+
+      it "returns provided app name" do
+        expect(ctxt.app_name).to eq('cool_app')
       end
     end
   end

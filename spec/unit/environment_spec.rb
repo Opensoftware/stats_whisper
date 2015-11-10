@@ -32,21 +32,6 @@ describe StatsWhisper::Environment do
     end
   end
 
-  describe "#app_name" do
-    context "when env variable is defined" do
-      it "returns env variable value" do
-        allow(ENV).to receive(:[]).with("STATSWHISPER_APP").and_return("bar")
-        expect(ctxt.app_name).to eq('bar')
-      end
-    end
-
-    context "when env variable is undefined" do
-      it "returns default value" do
-        expect(ctxt.app_name).to eq('foo')
-      end
-    end
-  end
-
   describe "#environment" do
 
     context 'when Rails defined' do

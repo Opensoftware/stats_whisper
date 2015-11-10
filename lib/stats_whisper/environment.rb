@@ -1,9 +1,13 @@
+require_relative 'config'
+
 require_relative 'backend/logger'
 require_relative 'backend/statsd'
 
 
 module StatsWhisper
   module Environment
+
+    include Config
 
     def backend
       case environment
@@ -20,10 +24,6 @@ module StatsWhisper
       else
         ENV['RAILS_ENV'] || 'development'
       end
-    end
-
-    def app_name
-      ENV['STATSWHISPER_APP'] || 'foo'
     end
 
   end

@@ -11,6 +11,10 @@ module StatsWhisper
       config['whitelist'] || []
     end
 
+    def app_name
+      config['app_name'] || 'foo'
+    end
+
     private
 
     def load_config

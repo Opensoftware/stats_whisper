@@ -1,6 +1,5 @@
 require_relative "environment"
 require_relative "parser"
-require_relative "config"
 
 module StatsWhisper
 
@@ -8,7 +7,6 @@ module StatsWhisper
 
     include Parser
     include Environment
-    include Config
 
     def gather_stats(env, response_time)
 
