@@ -11,11 +11,9 @@ describe StatsWhisper::Environment do
       context "when environment is #{env}" do
         before do
           allow(ctxt).to receive(:environment).and_return(env)
-          # allow(StatsWhisper::Backend::StatsD).to receive(:new).and_return("OK")
         end
 
         it 'returns statsd backend' do
-          # expect(ctxt.backend).to eq("OK")
           expect(ctxt.backend).to be_kind_of(StatsWhisper::Backend::StatsD)
         end
       end

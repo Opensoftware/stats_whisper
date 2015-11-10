@@ -7,7 +7,7 @@ require_relative 'backend/statsd'
 module StatsWhisper
   module Environment
 
-    include Config
+    extend self
 
     def backend
       case environment
