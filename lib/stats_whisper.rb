@@ -8,7 +8,11 @@ module StatsWhisper
   extend self
 
   attr_accessor :logger
+  attr_writer :backend
 
+  def backend
+    @backend ||= StatsWhisper::Environment.backend
+  end
 end
 
 StatsWhisper.logger = Logger.new($stderr)
