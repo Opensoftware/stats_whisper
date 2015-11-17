@@ -12,10 +12,12 @@ module StatsWhisper
     def gather_stats(env, response_time)
 
       if timing_allowed?(env["REQUEST_PATH"])
+        req_path = parse(env["REQUEST_PATH"])
         StatsWhisper.backend.timing(build_key(app_name, 'http', env["REQUEST_METHOD"],
-                                              parse(env["REQUEST_PATH"]),
+                                              req_path,
                                               'response_time'),
                                     response_time)
+        StatsWhisper.backend.increment(build_key(app_name, 'http', req_path, 'visits'))
       end
       StatsWhisper.backend.increment(build_key(app_name, 'http', 'visits'))
     end

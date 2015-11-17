@@ -17,7 +17,7 @@ describe StatsWhisper::Caller do
     before do
       allow(Rails).to receive(:env).and_return("production")
 
-      StatsWhisper.backend = StatsD.new
+      StatsWhisper.backend = ::StatsD.new
 
     end
 
@@ -26,7 +26,7 @@ describe StatsWhisper::Caller do
                             'REQUEST_METHOD' => 'GET'}, 234)
       expect(StatsWhisper.backend.timing_key).to eq('bar.http.GET.main.response_time')
       expect(StatsWhisper.backend.increment_key).to eq('bar.http.visits')
-
+      expect(StatsWhisper.backend.increment_key).to eq('bar.http.main.visits')
     end
 
   end
